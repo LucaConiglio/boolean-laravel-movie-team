@@ -9,7 +9,9 @@ class IndexController extends Controller
 {
     function index(){
 
-        $allMovies = Movie::all();
+        //per dare il limite a 10
+        //$allMovies = Movie::take(10)->get();
+        $allMovies = Movie::latest()->take(10)->get();;
 
         return view('index', compact('allMovies'));
     }
